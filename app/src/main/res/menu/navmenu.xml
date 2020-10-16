@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <item
+        android:id="@+id/refresh"
+        android:title="Refresh"
+        android:drawableTint="@color/white"
+        app:showAsAction="always|withText"
+        android:icon="@drawable/refresh"
+        />
+    <item
+        android:id="@+id/mybutton"
+        android:title="Login"
+        android:checkable="true"
+        android:drawableTint="@color/white"
+        app:showAsAction="always|withText"
+        android:icon="@drawable/log_in"
+        />
+</menu>
