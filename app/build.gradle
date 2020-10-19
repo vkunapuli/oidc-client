@@ -11,15 +11,58 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [
-                //appAuthRedirectScheme: "com.pmmercurydemoapp.uat"
-                ///appAuthRedirectScheme: "com.pmmercurydemoapp"
-                appAuthRedirectScheme: "com.fh.ilab.mercury"
+                appAuthRedirectScheme: "com.fh.ilab.mercury.test"
         ]
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    // Specifies one flavor dimension.
+    flavorDimensions "version"
+    productFlavors {
+        dev {
+            dimension "version"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+        }
+        sit {
+            dimension "version"
+            applicationIdSuffix ".sit"
+            versionNameSuffix "-sit"
+        }
+        uat {
+            dimension "version"
+            applicationIdSuffix ".uatr"
+            versionNameSuffix "-uatr"
+        }
+        cte {
+            dimension "version"
+            applicationIdSuffix ".cte"
+            versionNameSuffix "-cte"
+        }
+    }
+    productFlavors.all{ flavor->
+        if (flavor.name.equals("dev")) {
+            manifestPlaceholders.appAuthRedirectScheme = "com.fh.ilab.mercury.test"
+        }
+        if (flavor.name.equals("sit"))  {
+            manifestPlaceholders.appAuthRedirectScheme = "com.fh.ilab.mercury"
+        }
+        if (flavor.name.equals("uat")) {
+            manifestPlaceholders.appAuthRedirectScheme = "com.pmmercurydemoapp.uat"
+        }
+        if (flavor.name.equals("cte"))  {
+            manifestPlaceholders.appAuthRedirectScheme = "com.pmmercurydemoapp"
+        }
+    }
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src/main/res', 'src/main/res/raw'
+            }
         }
     }
 }
