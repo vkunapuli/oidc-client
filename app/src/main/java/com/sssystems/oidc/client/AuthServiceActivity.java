@@ -64,7 +64,7 @@ public class AuthServiceActivity extends AppCompatActivity {
         public void run() {
             try  {
                 Log.d("LOGOUT", "log out start");
-                URL url = new URL("https://www.ilabfhlmc.tk:9031/idp/startSLO.ping");
+                URL url = new URL("https://www.sssytems.tk:9031/idp/startSLO.ping");
                 HttpsURLConnection connection =(HttpsURLConnection)
                         url.openConnection();
                 connection.setSSLSocketFactory(SSLCertificateSocketFactory.getInsecure(0, null));
